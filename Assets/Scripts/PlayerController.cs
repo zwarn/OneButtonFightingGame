@@ -127,6 +127,7 @@ public class PlayerController : MonoBehaviour
     public void OnHurt()
     {
         Disengage();
+        charAnimator.animator.SetTrigger("Hit");
     }
 
     private void Disengage()
@@ -144,5 +145,8 @@ public class PlayerController : MonoBehaviour
     public void SetHurt(bool enable)
     {
         hurtBox.enabled = enable;
+        
+
+
     }
 }

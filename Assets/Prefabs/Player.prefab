@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 8496747313085054198}
+  hitEffect: {fileID: 8430684380250772756, guid: d7af451c57b97624392ca1e06c8dd654, type: 3}
 --- !u!1 &7539871769263242302
 GameObject:
   m_ObjectHideFlags: 0
