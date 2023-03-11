@@ -21,6 +21,8 @@ public class JumpState : StateBehavior
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateUpdate(animator, stateInfo, layerIndex);
+        playerController.SetHit(false);
+        playerController.SetHurt(true);
     }
 
     public override void Act(float charge, Animator animator)

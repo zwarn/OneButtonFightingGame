@@ -12,6 +12,8 @@ public class AirChargeState : StateBehavior
         base.OnStateEnter(animator, stateInfo, layerIndex);
         playerController.Charge(animator.GetFloat(ChargePower));
         animator.SetFloat(ChargePower, 0);
+        playerController.SetHit(true);
+        playerController.SetHurt(true);
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -9,6 +9,8 @@ public class PunchState : StateBehavior
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         playerController.Punch();
+        playerController.SetHit(true);
+        playerController.SetHurt(false);
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
