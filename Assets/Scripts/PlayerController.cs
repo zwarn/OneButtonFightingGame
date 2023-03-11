@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public TMP_Text scoreText;
     private static readonly int Land = Animator.StringToHash("Land");
     private static readonly int DisengageTrigger = Animator.StringToHash("Disengage");
+    public Collider hurtBox;
+    public Collider hitBox;
+
 
     private void Awake()
     {
@@ -61,7 +64,6 @@ public class PlayerController : MonoBehaviour
         var punchPower = 200 * DirectionScale();
         _rigidbody.AddForce(punchPower, 0, 0);
         charAnimator.animator.SetTrigger("Attack");
-
     }
 
     public void Charge(float power)
@@ -125,8 +127,6 @@ public class PlayerController : MonoBehaviour
     public void OnHurt()
     {
         Disengage();
-        charAnimator.animator.SetTrigger("Hit");
-
     }
 
     private void Disengage()
@@ -134,5 +134,15 @@ public class PlayerController : MonoBehaviour
         _animator.SetTrigger(DisengageTrigger);
         var xMovement = 500 * Mathf.Sign(transform.transform.position.x - Opponent.transform.position.x);
         _rigidbody.AddForce(xMovement, 200, 0);
+    }
+
+    public void SetHit(bool enable)
+    {
+        hitBox.enabled = enable;
+    }
+
+    public void SetHurt(bool enable)
+    {
+        hurtBox.enabled = enable;
     }
 }
