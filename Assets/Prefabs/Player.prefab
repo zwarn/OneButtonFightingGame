@@ -286,6 +286,8 @@ MonoBehaviour:
   Opponent: {fileID: 0}
   PowerBard: {fileID: 0}
   scoreText: {fileID: 0}
+  hurtBox: {fileID: 6881164401617963747}
+  hitBox: {fileID: 3317853000811104931}
 --- !u!54 &8958760529088806881
 Rigidbody:
   m_ObjectHideFlags: 0
