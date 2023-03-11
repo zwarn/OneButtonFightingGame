@@ -400,6 +400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ball
       objectReference: {fileID: 0}
+    - target: {fileID: 8735399937655071236, guid: 58d3fe6f16efaba47acbe07469ffe453, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58d3fe6f16efaba47acbe07469ffe453, type: 3}
 --- !u!95 &4083039707302045412 stripped

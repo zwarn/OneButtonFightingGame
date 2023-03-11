@@ -60,12 +60,15 @@ public class PlayerController : MonoBehaviour
     {
         var punchPower = 200 * DirectionScale();
         _rigidbody.AddForce(punchPower, 0, 0);
+        charAnimator.animator.SetTrigger("Attack");
+
     }
 
     public void Charge(float power)
     {
         var chargePower = 1000 * DirectionScale();
         _rigidbody.AddForce(chargePower, 0, 0);
+        charAnimator.animator.SetTrigger("Attack");
     }
 
     public void Flip()
