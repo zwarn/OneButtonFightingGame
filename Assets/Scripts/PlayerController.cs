@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float MoveSpeed = 100;
-    private float deltaX = 0;
+    public float MovePower = 100;
+    private Rigidbody _rigidbody;
+    private float xForce;
 
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
     public void MoveLeft()
     {
@@ -21,12 +26,12 @@ public class PlayerController : MonoBehaviour
 
     public void Move(int direction)
     {
-        deltaX += direction * MoveSpeed * Time.deltaTime;
+        xForce = direction * MovePower;
     }
 
     private void FixedUpdate()
     {
-        transform.Translate(deltaX, 0, 0);
-        deltaX = 0;
+        _rigidbody.AddForce(new Vector3(xForce, 0, 0));
+        xForce = 0;
     }
 }
