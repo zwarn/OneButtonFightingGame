@@ -7,7 +7,6 @@ public class ChargeHandler : MonoBehaviour
     public float maxCharge = 1;
     private bool charging = false;
 
-
     private void Update()
     {
         if (charging)

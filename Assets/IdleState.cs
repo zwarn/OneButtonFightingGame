@@ -5,8 +5,8 @@ using UnityEngine.PlayerLoop;
 
 public class IdleState : StateBehavior
 {
-    public float jumpTiming = 0.1f;
-    public float punchTiming = 0.3f;
+    public static float jumpTiming = 0.1f;
+    public static float punchTiming = 0.3f;
     private static readonly int Jump = Animator.StringToHash("Jump");
     private static readonly int Punch = Animator.StringToHash("Punch");
     private static readonly int Charge = Animator.StringToHash("Charge");

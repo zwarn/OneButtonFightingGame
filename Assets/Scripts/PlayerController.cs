@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 [RequireComponent(typeof(Rigidbody), typeof(ChargeHandler))]
 public class PlayerController : MonoBehaviour
@@ -12,12 +13,22 @@ public class PlayerController : MonoBehaviour
     public StateBehavior CurrentState { get; set; }
     public bool right = true;
     public PlayerController Opponent;
+    public PowerBard PowerBard;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _chargeHandler = GetComponent<ChargeHandler>();
         _animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        var charge = _chargeHandler.charge;
+        PowerBard.holdAmount = charge;
+        PowerBard.enableJump = charge > 0 && charge < IdleState.jumpTiming;
+        PowerBard.enablePunish = charge > 0 && charge < IdleState.punchTiming;
+        PowerBard.enableCharge = charge > IdleState.punchTiming;
     }
 
     public void ButtonDown()
@@ -53,6 +64,5 @@ public class PlayerController : MonoBehaviour
     public void Flip()
     {
         right = !right;
-        Debug.Log("flip");
     }
 }
