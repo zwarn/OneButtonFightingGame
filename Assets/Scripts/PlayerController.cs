@@ -3,35 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody), typeof(ChargeHandler))]
 public class PlayerController : MonoBehaviour
 {
     public float MovePower = 100;
     private Rigidbody _rigidbody;
-    private float xForce;
+    private ChargeHandler _chargeHandler;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _chargeHandler = GetComponent<ChargeHandler>();
     }
 
-    public void MoveLeft()
+    public void ButtonDown()
     {
-        Move(-1);
+        _chargeHandler.StartCharge();
     }
 
-    public void MoveRight()
+    public void ButtonUp()
     {
-        Move(1);
-    }
-
-    public void Move(int direction)
-    {
-        xForce = direction * MovePower;
-    }
-
-    private void FixedUpdate()
-    {
-        _rigidbody.AddForce(new Vector3(xForce, 0, 0));
-        xForce = 0;
+        var charge = _chargeHandler.charge;
+        _chargeHandler.ResetCharge();
+        _rigidbody.AddForce(0, MovePower * charge, 0);
     }
 }

@@ -10,20 +10,20 @@ public class InputController : MonoBehaviour
 
     private void Update()
     {
-        GetInput(playerOne, KeyCode.A, KeyCode.D);
-        GetInput(playerTwo, KeyCode.LeftArrow, KeyCode.RightArrow);
+        GetInput(playerOne, KeyCode.A);
+        GetInput(playerTwo, KeyCode.LeftArrow);
     }
 
-    private void GetInput(PlayerController playerController, KeyCode left, KeyCode right)
+    private void GetInput(PlayerController playerController, KeyCode charge)
     {
-        if (Input.GetKey(left))
+        if (Input.GetKeyDown(charge))
         {
-            playerController.MoveLeft();
+            playerController.ButtonDown();
         }
 
-        if (Input.GetKey(right))
+        if (Input.GetKeyUp(charge))
         {
-            playerController.MoveRight();
+            playerController.ButtonUp();
         }
     }
 }
