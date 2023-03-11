@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public bool right = true;
     public PlayerController Opponent;
     public PowerBard PowerBard;
+    private static readonly int Land = Animator.StringToHash("Land");
 
     private void Awake()
     {
@@ -79,5 +80,26 @@ public class PlayerController : MonoBehaviour
     public float DirectionScale()
     {
         return right ? 1 : -1;
+    }
+
+    private void OnLand()
+    {
+        _animator.SetTrigger(Land);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            OnLand();
+        }
+    }
+
+    public void OnHit()
+    {
+    }
+
+    public void OnHurt()
+    {
     }
 }

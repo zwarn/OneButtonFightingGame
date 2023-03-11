@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8958760529088806881}
   - component: {fileID: 7598094517873716050}
   - component: {fileID: 8340844903490547669}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   right: 1
   Opponent: {fileID: 0}
+  PowerBard: {fileID: 0}
 --- !u!54 &8958760529088806881
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a01f5a3bb14333aba72cc18e3d3d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeScale: 0.25
   charge: 0
   maxCharge: 1
 --- !u!95 &8340844903490547669
