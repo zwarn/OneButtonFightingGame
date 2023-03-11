@@ -71,9 +71,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3ccf734f9dbc047a1eb3d70b167c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charAnimator: {fileID: 4873328309755060043}
   right: 1
   Opponent: {fileID: 0}
   PowerBard: {fileID: 0}
+  scoreText: {fileID: 0}
 --- !u!54 &8958760529088806881
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -195,6 +197,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 4789992561678728797, guid: 58d3fe6f16efaba47acbe07469ffe453, type: 3}
   m_PrefabInstance: {fileID: 8849755924790909113}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4873328309755060043 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4139138354478057458, guid: 58d3fe6f16efaba47acbe07469ffe453, type: 3}
+  m_PrefabInstance: {fileID: 8849755924790909113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e433776f973e642b650dfeec55bab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5651368200448869700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3800219290865737213, guid: 58d3fe6f16efaba47acbe07469ffe453, type: 3}
