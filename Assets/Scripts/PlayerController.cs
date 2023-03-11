@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidbody;
     private ChargeHandler _chargeHandler;
     private Animator _animator;
+    public CharAnimator charAnimator;
     public StateBehavior CurrentState { get; set; }
     public bool right = true;
     public PlayerController Opponent;
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         var jumpPower = 400;
         _rigidbody.AddForce(0, jumpPower, 0);
+        charAnimator.animator.SetTrigger("Squish");
     }
 
     public void Punch()
@@ -89,6 +91,7 @@ public class PlayerController : MonoBehaviour
     private void OnLand()
     {
         _animator.SetTrigger(Land);
+        charAnimator.animator.SetTrigger("Squish");
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -119,6 +122,7 @@ public class PlayerController : MonoBehaviour
     public void OnHurt()
     {
         Disengage();
+        
     }
 
     private void Disengage()
