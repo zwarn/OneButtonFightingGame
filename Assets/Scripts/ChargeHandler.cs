@@ -4,6 +4,7 @@ using UnityEngine;
 public class ChargeHandler : MonoBehaviour
 {
     public float charge = 0;
+    public float maxCharge = 1;
     private bool charging = false;
 
 
@@ -12,6 +13,7 @@ public class ChargeHandler : MonoBehaviour
         if (charging)
         {
             charge += Time.deltaTime;
+            charge = Mathf.Min(charge, maxCharge);
         }
     }
 
