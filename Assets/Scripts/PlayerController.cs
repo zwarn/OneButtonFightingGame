@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public PlayerController Opponent;
     public PowerBard PowerBard;
     private static readonly int Land = Animator.StringToHash("Land");
+    private static readonly int Disengage = Animator.StringToHash("Disengage");
 
     private void Awake()
     {
@@ -97,9 +98,15 @@ public class PlayerController : MonoBehaviour
 
     public void OnHit()
     {
+        _animator.SetTrigger(Disengage);
+        var xMovement = 500 * Mathf.Sign(transform.transform.position.x - Opponent.transform.position.x);
+        _rigidbody.AddForce(xMovement, 200, 0);
     }
 
     public void OnHurt()
     {
+        _animator.SetTrigger(Disengage);
+        var xMovement = 500 * Mathf.Sign(transform.transform.position.x - Opponent.transform.position.x);
+        _rigidbody.AddForce(xMovement, 200, 0);
     }
 }
