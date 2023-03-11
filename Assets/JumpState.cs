@@ -10,6 +10,7 @@ public class JumpState : StateBehavior
     private static readonly int Jump = Animator.StringToHash("Jump");
     private static readonly int Punch = Animator.StringToHash("Punch");
     private static readonly int Charge = Animator.StringToHash("Charge");
+    private static readonly int ChargePower = Animator.StringToHash("ChargePower");
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -40,6 +41,7 @@ public class JumpState : StateBehavior
         else
         {
             animator.SetTrigger(Charge);
+            animator.SetFloat(ChargePower, charge);
         }
     }
 }

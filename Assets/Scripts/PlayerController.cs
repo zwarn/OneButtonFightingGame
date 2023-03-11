@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody.AddForce(punchPower, 0, 0);
     }
 
-    public void Charge()
+    public void Charge(float power)
     {
         var chargePower = 1000 * DirectionScale();
         _rigidbody.AddForce(chargePower, 0, 0);

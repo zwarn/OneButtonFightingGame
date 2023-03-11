@@ -5,10 +5,13 @@ using UnityEngine.PlayerLoop;
 
 public class AirChargeState : StateBehavior
 {
+    private static readonly int ChargePower = Animator.StringToHash("ChargePower");
+
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
-        playerController.Charge();
+        playerController.Charge(animator.GetFloat(ChargePower));
+        animator.SetFloat(ChargePower, 0);
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
