@@ -5,7 +5,7 @@ public class HurtBox : MonoBehaviour
 {
     public PlayerController owner;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         owner.OnHurt();
         owner.Opponent.OnHit();
