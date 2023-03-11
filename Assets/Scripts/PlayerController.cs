@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         var charge = _chargeHandler.charge;
         PowerBard.holdAmount = charge;
         PowerBard.enableJump = charge > 0 && charge < IdleState.jumpTiming;
-        PowerBard.enablePunish = charge > 0 && charge < IdleState.punchTiming;
+        PowerBard.enablePunish = charge > IdleState.jumpTiming && charge < IdleState.punchTiming;
         PowerBard.enableCharge = charge > IdleState.punchTiming;
     }
 
