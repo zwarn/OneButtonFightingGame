@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public bool right = true;
     public PlayerController Opponent;
     public PowerBard PowerBard;
+    private int score;
+    public TMP_Text scoreText;
     private static readonly int Land = Animator.StringToHash("Land");
     private static readonly int DisengageTrigger = Animator.StringToHash("Disengage");
 
@@ -109,6 +112,8 @@ public class PlayerController : MonoBehaviour
     public void OnHit()
     {
         Disengage();
+        score += 1;
+        scoreText.text = score.ToString();
     }
 
     public void OnHurt()
