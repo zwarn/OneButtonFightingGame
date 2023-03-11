@@ -8,8 +8,6 @@ public class PunchState : StateBehavior
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
-        var playerController = animator.GetComponent<PlayerController>();
-        playerController.CurrentState = this;
         playerController.Punch();
     }
 
