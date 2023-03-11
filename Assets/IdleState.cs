@@ -21,7 +21,15 @@ public class IdleState : StateBehavior
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateUpdate(animator, stateInfo, layerIndex);
-        //TODO: handle facing
+        var player = animator.gameObject.GetComponent<PlayerController>();
+        var opponent = player.Opponent;
+
+        var shouldFaceRight = player.transform.position.x - opponent.transform.position.x < 0;
+
+        if (player.right != shouldFaceRight)
+        {
+            player.Flip();
+        }
     }
 
     public override void Act(float charge, Animator animator)

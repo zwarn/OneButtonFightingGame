@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private ChargeHandler _chargeHandler;
     private Animator _animator;
     public StateBehavior CurrentState { get; set; }
+    public bool right = true;
+    public PlayerController Opponent;
 
     private void Awake()
     {
@@ -38,13 +40,19 @@ public class PlayerController : MonoBehaviour
 
     public void Punch()
     {
-        var punchPower = 200;
+        var punchPower = 200 * (right ? 1 : -1);
         _rigidbody.AddForce(punchPower, 0, 0);
     }
 
     public void Charge()
     {
-        var chargePower = 1000;
+        var chargePower = 1000 * (right ? 1 : -1);
         _rigidbody.AddForce(chargePower, 0, 0);
+    }
+
+    public void Flip()
+    {
+        right = !right;
+        Debug.Log("flip");
     }
 }
